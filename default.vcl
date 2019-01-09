@@ -1,11 +1,12 @@
 vcl 4.0;
 
 backend default {
-    .host = "https://dog.ceo";
+    .host = "doggos";
+    .port = "3000";
 }
 
 sub vcl_recv {
-    if (req.method == "GET" && req.url ~ "api/breeds/list/all") {
+    if (req.method == "GET" && req.url ~ "api/dogs") {
         return (hash);
     }
     return (pass);
